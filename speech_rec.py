@@ -11,7 +11,9 @@ def recognize_speech(timeout=5, phrase_time_limit=10, silence_threshold=2):
         last_audio_time = time.time()
         while (time.time() - last_audio_time) < silence_threshold:
             try:
-                audio += recognizer.listen(source, timeout=1, phrase_time_limit=1)
+                new_audio = recognizer.listen(source, timeout=1, phrase_time_limit=1)
+                audio = sr.AudioData(audio.get_raw_data() + new_audio.get_raw_data(),
+                                     audio.sample_rate, audio.sample_width)
                 last_audio_time = time.time()
             except sr.WaitTimeoutError:
                 pass

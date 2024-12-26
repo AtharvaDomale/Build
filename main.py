@@ -7,9 +7,16 @@ def main():
     while True:
         query = recognize_speech()
         if query:
+            speak(f"You said: {query}")
             response = handle_query(query)
             speak(response)
-            if "exit" in query:
+            speak("Do you need any other help?")
+            additional_query = recognize_speech()
+            if additional_query:
+                speak(f"You said: {additional_query}")
+                additional_response = handle_query(additional_query)
+                speak(additional_response)
+            if "exit" in query.lower() or "exit" in additional_query.lower():
                 speak("Goodbye! Have a great day!")
                 break
 
