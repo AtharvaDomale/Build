@@ -87,7 +87,3 @@ class WaiterAssistant:
 if __name__ == "__main__":
     waiter = WaiterAssistant()
     waiter.run()
-
-
-
-

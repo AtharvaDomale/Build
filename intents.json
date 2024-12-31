@@ -1,12 +1,154 @@
 {
-    "intents" : [
-        {
+    "intents": [
+      {
         "tag": "greeting",
-        "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day"]
-            
-        
-        
-        
-        }
+        "patterns": [
+          "Hi there", "Hello", "Good evening", "Hey", "How's it going?",
+          "Hi, can I get some help?", "Hello there, waiter!", "Good morning, how are you?",
+          "Hi! Is anyone here?", "Hello, could you assist me?"
+        ],
+        "responses": [
+          "Hello! Welcome to our restaurant.", "Good day! How can I assist you today?",
+          "Hi! What can I do for you?", "Hello! I'm here to help.", "Hi there! How may I serve you today?"
+        ]
+      },
+      {
+        "tag": "menu_request",
+        "patterns": [
+          "Can I see the menu?", "Show me the menu", "What do you have on the menu?",
+          "I'd like to see the menu", "Can you give me the menu?", "What dishes do you serve here?",
+          "Do you have a menu card?", "Can I look at the menu options?", "Please show me the food menu."
+        ],
+        "responses": [
+          "Sure, here's the menu.", "Of course! Let me get the menu for you.",
+          "Right away! Here's our menu.", "Certainly! Please take a look at our menu options.",
+          "Here you go! This is our menu."
+        ]
+      },
+      {
+        "tag": "place_order",
+        "patterns": [
+          "I'd like to order", "Can I place an order?", "I want to order now", 
+          "Take my order, please", "I'd like to get...", "I am ready to order",
+          "Can you take my order?", "I want to order a starter", "Please add this to my order."
+        ],
+        "responses": [
+          "Certainly! What would you like to order?", "Sure, what can I get for you?",
+          "Of course! Please tell me your order.", "Right away! What's your choice?",
+          "I'm here to take your order. Go ahead!"
+        ]
+      },
+      {
+        "tag": "recommendation_request",
+        "patterns": [
+          "What do you recommend?", "Can you suggest something?", "What's the best dish here?",
+          "Any recommendations?", "What's your specialty?", "What are the chef's specials?",
+          "Can you recommend a good dessert?", "What should I try?", "What is the most popular dish?"
+        ],
+        "responses": [
+          "Our chef recommends the grilled salmon!", "I suggest trying our pasta; it's very popular.",
+          "Our signature steak is a customer favorite!", "You might like our roasted chicken special.",
+          "For desserts, our chocolate lava cake is a must-try!"
+        ]
+      },
+      {
+        "tag": "bill_request",
+        "patterns": [
+          "Can I have the bill, please?", "Bring me the bill", "I want to pay now",
+          "Check, please", "I'd like to settle the bill", "Can you prepare my bill?",
+          "Can I pay the bill now?", "Please get me the check", "I need the bill."
+        ],
+        "responses": [
+          "Of course, I'll bring your bill right away.", "Sure, let me get the bill for you.",
+          "Right away! Here's your bill.", "I'll prepare the bill for you now.", "One moment, please. I'll bring the bill."
+        ]
+      },
+      {
+        "tag": "thank_you",
+        "patterns": [
+          "Thank you", "Thanks a lot", "I appreciate it", "Thanks so much", "Thank you for your help",
+          "Many thanks", "I am grateful", "Thank you, waiter!", "Thanks for the service."
+        ],
+        "responses": [
+          "You're welcome!", "My pleasure!", "Glad to assist you!", "Anytime!", "Happy to help!"
+        ]
+      },
+      {
+        "tag": "goodbye",
+        "patterns": [
+          "Goodbye", "See you later", "Bye", "Thanks and goodbye", "Have a good day!",
+          "Take care, goodbye", "See you next time", "Farewell!", "I'm leaving now. Bye!"
+        ],
+        "responses": [
+          "Goodbye! Have a great day!", "Take care! See you soon!", "Bye! Hope to see you again!",
+          "Have a nice day! Goodbye!", "See you next time!"
+        ]
+      },
+      {
+        "tag": "complaint",
+        "patterns": [
+          "This is taking too long", "I'm not happy with the service", "My food is cold",
+          "This isn't what I ordered", "I have a complaint", "The service is very slow",
+          "This dish doesn't taste good", "I need to speak to the manager", "This is not acceptable."
+        ],
+        "responses": [
+          "I apologize for the inconvenience. Let me fix this for you.", "I'm sorry to hear that. How can I make it right?",
+          "My apologies. I'll address this immediately.", "I understand your concern. Let me handle this.",
+          "I'm very sorry for this. I'll take care of it right away."
+        ]
+      },
+      {
+        "tag": "special_request",
+        "patterns": [
+          "Can you make it spicy?", "I need a gluten-free option", "Do you have vegan dishes?",
+          "I want it without onions", "Can you customize the dish?", "No peanuts, please",
+          "Can you make it less salty?", "Do you have a sugar-free dessert?", "I need a kids' meal."
+        ],
+        "responses": [
+          "Sure, we can customize that for you.", "Of course! Let me note that down.",
+          "Absolutely! We can make it as per your preference.", "No problem, I'll inform the kitchen.",
+          "Consider it done. We'll prepare it as requested."
+        ]
+      },
+      {
+        "tag": "drink_order",
+        "patterns": [
+          "I'd like a drink", "Can I get some water?", "What drinks do you have?",
+          "I'd like to order a beverage", "Bring me a soda, please", "Do you serve cocktails?",
+          "Can I get a fresh juice?", "I need a glass of wine", "What are your non-alcoholic options?"
+        ],
+        "responses": [
+          "Certainly! Would you like to see our drinks menu?", "Right away! Any preferences?",
+          "Of course! I'll bring that for you.", "Sure, let me show you our drink options.",
+          "Yes, we have a variety of drinks. What would you like?"
+        ]
+      },
+      {
+        "tag": "reservation",
+        "patterns": [
+          "I'd like to make a reservation", "Can I book a table?", "Reserve a table for me",
+          "Is there a table available for tonight?", "Can I schedule a table for two?",
+          "Do you take reservations?", "I want to reserve a table for tomorrow", "Book a table for four, please."
+        ],
+        "responses": [
+          "Sure, let me take your reservation details.", "Of course! What time would you like to reserve?",
+          "Absolutely! How many people is the reservation for?", "Yes, let me book a table for you.",
+          "Certainly! Your table is reserved."
+        ]
+      },
+      {
+        "tag": "feedback",
+        "patterns": [
+          "I'd like to give feedback", "Can I provide a review?", "I have some feedback for you",
+          "Can I share my thoughts on the service?", "I want to leave a review",
+          "How can I give feedback?", "Where can I submit my comments?", "I want to rate the service."
+        ],
+        "responses": [
+          "We'd love to hear your feedback. Please go ahead.", "Sure, we appreciate your input!",
+          "Thank you for sharing your thoughts. What would you like to say?",
+          "Of course! Please tell us how we can improve.", "We're always looking to improve. Please share your feedback."
+        ]
+      }
     ]
-}
+  }
+  
