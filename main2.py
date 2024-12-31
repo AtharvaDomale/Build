@@ -82,6 +82,35 @@ def add_todo():
 
                 speaker.say(f"i added {item} to the to do list")
                 speaker.runAndWait()
+        except sr.UnknownValueError:
+            recognizer = sr.Recognizer()
+            speaker.say("i did not understand you, please try again")
+            speaker.runAndWait()
+
+
+
+
+
+def show_todos():
+
+    speaker.say("the items on your to do list are the following")
+    for item in todo_list:
+        speaker.say(item)
+    speaker.runAndWait()
+
+
+
+def hello():
+    speaker.say("hello what can i do for you")
+    speaker.runAndWait()
+
+
+def quit():
+    speaker.say("bye")
+    speaker.runAndWait()
+    sys.exit(0)
+
+
 
 assistant = GenericAssistant('intents.json')
 assistant.train_model()

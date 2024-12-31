@@ -204,7 +204,7 @@
             ]
         },
         {
-            "tag": "reservation_cancel",
+            "tag": "add_todo",
             "patterns": [
             "I need to cancel my reservation", "Can I cancel my table booking?", "I want to cancel my reservation",
             "Please cancel my table reservation", "I'd like to cancel the reservation for tonight", "Cancel my booking for tomorrow",
@@ -215,5 +215,5 @@
             ]
         }
     ]
-  }         // End of intents.json
+  }      
   
