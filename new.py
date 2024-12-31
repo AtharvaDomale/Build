@@ -1,137 +1,72 @@
-import sys
-import json
-import speech_recognition as sr
-import pyttsx3 as tts
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
+from neuralintents.assistants import BasicAssistant
 
-# Speech recognizer and TTS initialization
-recognizer = sr.Recognizer()
-speaker = tts.init()
-speaker.setProperty('rate', 150)
-
-# Load intents from JSON file
-with open("waiter_intents.json", "r") as file:
-    data = json.load(file)
-
-# Extract training data
-X_train = []
-y_train = []
-
-for intent in data["intents"]:
-    for pattern in intent["patterns"]:
-        X_train.append(pattern)
-        y_train.append(intent["tag"])
-
-# Train the intent classifier
-vectorizer = TfidfVectorizer()
-X_train_tfidf = vectorizer.fit_transform(X_train)
-
-model = LogisticRegression()
-model.fit(X_train_tfidf, y_train)
-
-# Sample menu and order list
-menu = {
-    "pizza": 10.99,
-    "pasta": 8.99,
-    "burger": 6.99,
-    "salad": 5.99,
-    "soda": 1.99
+# Sample menu items with prices for the assistant (Real-time data would come from a database or API)
+menu_items = {
+    "Pizza": 12.99,
+    "Burger": 8.99,
+    "Pasta": 10.99,
+    "Salad": 6.99
 }
-order = []
 
-# Functions for waiter intents
-def respond(tag):
-    for intent in data["intents"]:
-        if intent["tag"] == tag:
-            response = intent["responses"][0]
-            speaker.say(response)
-            speaker.runAndWait()
-            return
-
-def take_order():
-    global recognizer
-
-    speaker.say("What would you like to order?")
-    speaker.runAndWait()
-
-    try:
-        with sr.Microphone() as mic:
-            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
-            audio = recognizer.listen(mic)
-
-            item = recognizer.recognize_google(audio)
-            item = item.lower()
-
-            if item in menu:
-                order.append(item)
-                speaker.say(f"I have added {item} to your order.")
-            else:
-                speaker.say(f"Sorry, we don't have {item} on the menu.")
-            speaker.runAndWait()
-    except sr.UnknownValueError:
-        recognizer = sr.Recognizer()
-        speaker.say("I didn't catch that. Please try again.")
-        speaker.runAndWait()
+# Keep track of the order and total amount
+order_list = []
+total_amount = 0
 
 def show_menu():
-    speaker.say("Here is the menu:")
-    for item, price in menu.items():
-        speaker.say(f"{item}: ${price}")
-    speaker.runAndWait()
+    print("Here’s our menu:")
+    for item, price in menu_items.items():
+        print(f"{item}: ${price}")
 
-def get_bill():
-    if not order:
-        speaker.say("You haven't ordered anything yet.")
+def take_order():
+    global total_amount
+    order = input("What would you like to order? ").capitalize()
+    if order in menu_items:
+        order_list.append(order)
+        total_amount += menu_items[order]
+        print(f"Great choice! You've ordered {order}.")
     else:
-        total = sum(menu[item] for item in order)
-        speaker.say(f"Your total is ${total:.2f}.")
-    speaker.runAndWait()
+        print(f"Sorry, we don’t have {order} on the menu. Please choose something from the list.")
 
-def exit_system():
-    speaker.say("Thank you for visiting! Have a great day!")
-    speaker.runAndWait()
-    sys.exit(0)
+def print_bill():
+    global total_amount
+    print(f"Your current order: {', '.join(order_list)}")
+    print(f"Total: ${total_amount:.2f}")
+    print("Thank you for dining with us!")
 
-# Map functions to tags
-intent_methods = {
-    "greeting": lambda: respond("greeting"),
-    "take_order": take_order,
-    "show_menu": show_menu,
-    "recommend_dish": lambda: respond("recommend_dish"),
-    "get_bill": get_bill,
-    "exit": exit_system
-}
+def show_specials():
+    print("Today's specials: Grilled Salmon, Spaghetti Bolognese, and Garlic Bread.")
 
-# Main loop for waiter assistant
-def waiter_assistant():
-    global recognizer
+def make_recommendation():
+    print("I recommend our signature Pizza and Pasta. They are customer favorites!")
 
-    while True:
-        try:
-            speaker.say("Listening...")
-            speaker.runAndWait()
+def show_ingredients(dish):
+    ingredients = {
+        "Pizza": "Dough, Cheese, Tomato Sauce, Pepperoni",
+        "Pasta": "Penne, Tomato Sauce, Basil, Garlic",
+        "Burger": "Beef Patty, Lettuce, Tomato, Cheese, Bun"
+    }
+    print(f"The ingredients of {dish} are: {ingredients.get(dish, 'Sorry, we don’t have details for this dish.')}.")
 
-            with sr.Microphone() as mic:
-                recognizer.adjust_for_ambient_noise(mic, duration=0.2)
-                audio = recognizer.listen(mic)
+# Initialize assistant with custom method mappings
+assistant = BasicAssistant('intents.json', method_mappings={
+    "order": take_order,
+    "menu": show_menu,
+    "bill": print_bill,
+    "specials": show_specials,
+    "recommendation": make_recommendation,
+    "ingredients": show_ingredients,
+    "goodbye": lambda: exit(0)
+})
 
-                message = recognizer.recognize_google(audio)
-                message = message.lower()
+# Train and save the model
+assistant.fit_model(epochs=50)
+assistant.save_model()
 
-            X_test_tfidf = vectorizer.transform([message])
-            intent = model.predict(X_test_tfidf)[0]
-
-            if intent in intent_methods:
-                intent_methods[intent]()
-            else:
-                speaker.say("I didn't understand that. Could you please repeat?")
-                speaker.runAndWait()
-
-        except sr.UnknownValueError:
-            recognizer = sr.Recognizer()
-            speaker.say("I didn't catch that. Please try again.")
-            speaker.runAndWait()
-
-if __name__ == "__main__":
-    waiter_assistant()
+# Running the assistant
+done = False
+while not done:
+    message = input("Enter a message: ")
+    if message == "STOP":
+        done = True
+    else:
+        print(assistant.process_input(message))

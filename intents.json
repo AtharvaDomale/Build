@@ -1,219 +1,44 @@
 {
-    "intents": [
-      {
-        "tag": "greeting",
-        "patterns": [
-          "Hi there", "Hello", "Good evening", "Hey", "How's it going?",
-          "Hi, can I get some help?", "Hello there, waiter!", "Good morning, how are you?",
-          "Hi! Is anyone here?", "Hello, could you assist me?"
-        ],
-        "responses": [
-          "Hello! Welcome to our restaurant.", "Good day! How can I assist you today?",
-          "Hi! What can I do for you?", "Hello! I'm here to help.", "Hi there! How may I serve you today?"
-        ]
-      },
-      {
-        "tag": "menu_request",
-        "patterns": [
-          "Can I see the menu?", "Show me the menu", "What do you have on the menu?",
-          "I'd like to see the menu", "Can you give me the menu?", "What dishes do you serve here?",
-          "Do you have a menu card?", "Can I look at the menu options?", "Please show me the food menu."
-        ],
-        "responses": [
-          "Sure, here's the menu.", "Of course! Let me get the menu for you.",
-          "Right away! Here's our menu.", "Certainly! Please take a look at our menu options.",
-          "Here you go! This is our menu."
-        ]
-      },
-      {
-        "tag": "place_order",
-        "patterns": [
-          "I'd like to order", "Can I place an order?", "I want to order now", 
-          "Take my order, please", "I'd like to get...", "I am ready to order",
-          "Can you take my order?", "I want to order a starter", "Please add this to my order."
-        ],
-        "responses": [
-          "Certainly! What would you like to order?", "Sure, what can I get for you?",
-          "Of course! Please tell me your order.", "Right away! What's your choice?",
-          "I'm here to take your order. Go ahead!"
-        ]
-      },
-      {
-        "tag": "recommendation_request",
-        "patterns": [
-          "What do you recommend?", "Can you suggest something?", "What's the best dish here?",
-          "Any recommendations?", "What's your specialty?", "What are the chef's specials?",
-          "Can you recommend a good dessert?", "What should I try?", "What is the most popular dish?"
-        ],
-        "responses": [
-          "Our chef recommends the grilled salmon!", "I suggest trying our pasta; it's very popular.",
-          "Our signature steak is a customer favorite!", "You might like our roasted chicken special.",
-          "For desserts, our chocolate lava cake is a must-try!"
-        ]
-      },
-      {
-        "tag": "bill_request",
-        "patterns": [
-          "Can I have the bill, please?", "Bring me the bill", "I want to pay now",
-          "Check, please", "I'd like to settle the bill", "Can you prepare my bill?",
-          "Can I pay the bill now?", "Please get me the check", "I need the bill."
-        ],
-        "responses": [
-          "Of course, I'll bring your bill right away.", "Sure, let me get the bill for you.",
-          "Right away! Here's your bill.", "I'll prepare the bill for you now.", "One moment, please. I'll bring the bill."
-        ]
-      },
-      {
-        "tag": "thank_you",
-        "patterns": [
-          "Thank you", "Thanks a lot", "I appreciate it", "Thanks so much", "Thank you for your help",
-          "Many thanks", "I am grateful", "Thank you, waiter!", "Thanks for the service."
-        ],
-        "responses": [
-          "You're welcome!", "My pleasure!", "Glad to assist you!", "Anytime!", "Happy to help!"
-        ]
-      },
-      {
-        "tag": "goodbye",
-        "patterns": [
-          "Goodbye", "See you later", "Bye", "Thanks and goodbye", "Have a good day!",
-          "Take care, goodbye", "See you next time", "Farewell!", "I'm leaving now. Bye!"
-        ],
-        "responses": [
-          "Goodbye! Have a great day!", "Take care! See you soon!", "Bye! Hope to see you again!",
-          "Have a nice day! Goodbye!", "See you next time!"
-        ]
-      },
-      {
-        "tag": "complaint",
-        "patterns": [
-          "This is taking too long", "I'm not happy with the service", "My food is cold",
-          "This isn't what I ordered", "I have a complaint", "The service is very slow",
-          "This dish doesn't taste good", "I need to speak to the manager", "This is not acceptable."
-        ],
-        "responses": [
-          "I apologize for the inconvenience. Let me fix this for you.", "I'm sorry to hear that. How can I make it right?",
-          "My apologies. I'll address this immediately.", "I understand your concern. Let me handle this.",
-          "I'm very sorry for this. I'll take care of it right away."
-        ]
-      },
-      {
-        "tag": "special_request",
-        "patterns": [
-          "Can you make it spicy?", "I need a gluten-free option", "Do you have vegan dishes?",
-          "I want it without onions", "Can you customize the dish?", "No peanuts, please",
-          "Can you make it less salty?", "Do you have a sugar-free dessert?", "I need a kids' meal."
-        ],
-        "responses": [
-          "Sure, we can customize that for you.", "Of course! Let me note that down.",
-          "Absolutely! We can make it as per your preference.", "No problem, I'll inform the kitchen.",
-          "Consider it done. We'll prepare it as requested."
-        ]
-      },
-      {
-        "tag": "drink_order",
-        "patterns": [
-          "I'd like a drink", "Can I get some water?", "What drinks do you have?",
-          "I'd like to order a beverage", "Bring me a soda, please", "Do you serve cocktails?",
-          "Can I get a fresh juice?", "I need a glass of wine", "What are your non-alcoholic options?"
-        ],
-        "responses": [
-          "Certainly! Would you like to see our drinks menu?", "Right away! Any preferences?",
-          "Of course! I'll bring that for you.", "Sure, let me show you our drink options.",
-          "Yes, we have a variety of drinks. What would you like?"
-        ]
-      },
-      {
-        "tag": "reservation",
-        "patterns": [
-          "I'd like to make a reservation", "Can I book a table?", "Reserve a table for me",
-          "Is there a table available for tonight?", "Can I schedule a table for two?",
-          "Do you take reservations?", "I want to reserve a table for tomorrow", "Book a table for four, please."
-        ],
-        "responses": [
-          "Sure, let me take your reservation details.", "Of course! What time would you like to reserve?",
-          "Absolutely! How many people is the reservation for?", "Yes, let me book a table for you.",
-          "Certainly! Your table is reserved."
-        ]
-      },
-      {
-        "tag": "feedback",
-        "patterns": [
-          "I'd like to give feedback", "Can I provide a review?", "I have some feedback for you",
-          "Can I share my thoughts on the service?", "I want to leave a review",
-          "How can I give feedback?", "Where can I submit my comments?", "I want to rate the service."
-        ],
-        "responses": [
-          "We'd love to hear your feedback. Please go ahead.", "Sure, we appreciate your input!",
-          "Thank you for sharing your thoughts. What would you like to say?",
-          "Of course! Please tell us how we can improve.", "We're always looking to improve. Please share your feedback."
-        ]
-      },
-        {
-            "tag": "opening_hours",
-            "patterns": [
-            "What are your opening hours?", "When do you open and close?", "What time do you close?",
-            "Can you tell me your business hours?", "When can I visit?", "What time do you start serving?",
-            "Are you open today?", "Can I come in now?", "What time do you close tonight?"
-            ],
-            "responses": [
-            "We are open from 11:00 AM to 10:00 PM every day.", "Our business hours are from 10:30 AM to 9:30 PM.",
-            "We close at 11:00 PM. You're welcome to visit before that.", "We start serving at 12:00 PM and close at 10:00 PM.",
-            "Yes, we are open today. Feel free to visit us!"
-            ]
-        },
-        {
-            "tag": "exit",
-            "patterns": [
-            "Where are you located?", "What's your address?", "Can you give me directions?",
-            "How do I get to your restaurant?", "Where is your restaurant situated?", "What's the location of your place?",
-            "Can you tell me your exact location?", "I need to know where you are.", "Where can I find you?"
-            ],
-            "responses": [
-            "We are located at 123 Main Street, City, State, Zip Code.", "Our address is 456 Elm Avenue, City, State, Zip Code.",
-            "You can find us at 789 Oak Street, City, State, Zip Code.", "Our restaurant is situated at 101 Pine Road, City, State, Zip Code.",
-            "We are located in the heart of downtown at 321 Maple Lane, City, State, Zip Code."
-            ]
-        },
-        {
-            "tag": "create_note",
-            "patterns": [
-            "How can I contact you?", "Do you have a phone number?", "Can I call you?",
-            "What's your contact information?", "I need to get in touch with you.", "Can you provide your email?",
-            "How do I reach you?", "I want to contact your restaurant.", "Do you have a contact form?"
-            ],
-            "responses": [
-            "You can contact us at (123) 456-7890.", "Our phone number is (987) 654-3210.",
-            "Feel free to call us at (555) 123-4567.", "You can reach us at (321) 654-9870.",
-            "For inquiries, please contact us at (789) 456-1230."
-            ]
-        },
-        {
-            "tag": "show_todos",
-            "patterns": [
-            "Do you have vegetarian options?", "Are there vegan dishes?", "Can you make it gluten-free?",
-            "What are your seafood options?", "Do you serve meat dishes?", "Are there any dairy-free options?",
-            "Can you recommend a low-calorie dish?", "What are your signature dishes?", "Do you have kids' meals?"
-            ],
-            "responses": [
-            "Yes, we have vegetarian options available on our menu.", "We offer vegan dishes as well.",
-            "We can make dishes gluten-free upon request.", "Our seafood options include salmon and shrimp.",
-            "We serve a variety of meat dishes like steak and chicken.", "We have dairy-free options for those with allergies.",
-            "For a low-calorie option, we recommend our salad.", "Our signature dishes include grilled salmon and pasta.",
-            "We have kids' meals such as chicken tenders and macaroni and cheese."
-            ]
-        },
-        {
-            "tag": "add_todo",
-            "patterns": [
-            "I need to cancel my reservation", "Can I cancel my table booking?", "I want to cancel my reservation",
-            "Please cancel my table reservation", "I'd like to cancel the reservation for tonight", "Cancel my booking for tomorrow",
-            "I need to change my reservation", "Can I reschedule my table booking?", "I want to change my reservation date"
-            ],
-            "responses": [
-            "Sure, I'll cancel your reservation for you.", "No problem, I'll take care of the cancellation."
-            ]
-        }
-    ]
-  }      
-  
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Good evening", "How are you?"],
+      "responses": ["Hello, welcome to the restaurant!", "Good evening, how can I assist you today?"]
+    },
+    {
+      "tag": "order",
+      "patterns": ["I'd like to order", "Can I place an order?", "I want to order food", "Order food"],
+      "responses": ["What would you like to order?"]
+    },
+    {
+      "tag": "menu",
+      "patterns": ["Show me the menu", "What do you have?", "Tell me about the menu", "What food do you serve?"],
+      "responses": ["Here’s our menu: Pizza, Burger, Pasta, Salad."]
+    },
+    {
+      "tag": "bill",
+      "patterns": ["How much is the bill?", "Can I get the bill?", "What’s the total?", "Check, please!"],
+      "responses": ["Sure, let me get the bill for you."]
+    },
+    {
+      "tag": "specials",
+      "patterns": ["What are today's specials?", "Any specials today?", "What is on special today?"],
+      "responses": ["Today we have: Grilled Salmon, Spaghetti Bolognese, and Garlic Bread."]
+    },
+    {
+      "tag": "recommendation",
+      "patterns": ["What do you recommend?", "What's your best dish?", "Can you recommend something?"],
+      "responses": ["I recommend our signature Pizza and Pasta. They are customer favorites!"]
+    },
+    {
+      "tag": "ingredients",
+      "patterns": ["What ingredients are in the Pizza?", "Tell me the ingredients of the Pasta", "What’s in the Burger?"],
+      "responses": ["Pizza: Dough, Cheese, Tomato Sauce, Pepperoni", "Pasta: Penne, Tomato Sauce, Basil, Garlic", "Burger: Beef Patty, Lettuce, Tomato, Cheese, Bun"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Goodbye", "Thank you", "See you later", "Take care"],
+      "responses": ["Thank you for visiting, have a great day!", "Goodbye!"]
+    }
+  ]
+}
