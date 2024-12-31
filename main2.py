@@ -112,7 +112,31 @@ def quit():
 
 
 
+mappings = {
+    "greeting": hello,
+    "create_note": basic_function,
+    "add_todo": add_todo,
+    "show_todos": show_todos,
+    "exit": quit
+}
+
+
 assistant = GenericAssistant('intents.json')
 assistant.train_model()
 
+while True:
 
+    try:
+
+        with sr.Microphone() as mic:
+
+            recognizer.adjust_for_ambient_noise(mic, duration=0.2)
+            audio = recognizer.listen(mic)
+
+            message = recognizer.recognize_google(audio)
+            message = message.lower()
+
+        assistant.request(message)
+
+    except sr.UnknownValueError:
+        recognizer = sr.Recognizer()

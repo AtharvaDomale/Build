@@ -163,7 +163,7 @@
             ]
         },
         {
-            "tag": "location",
+            "tag": "exit",
             "patterns": [
             "Where are you located?", "What's your address?", "Can you give me directions?",
             "How do I get to your restaurant?", "Where is your restaurant situated?", "What's the location of your place?",
@@ -176,7 +176,7 @@
             ]
         },
         {
-            "tag": "contact",
+            "tag": "create_note",
             "patterns": [
             "How can I contact you?", "Do you have a phone number?", "Can I call you?",
             "What's your contact information?", "I need to get in touch with you.", "Can you provide your email?",
@@ -189,7 +189,7 @@
             ]
         },
         {
-            "tag": "menu_options",
+            "tag": "show_todos",
             "patterns": [
             "Do you have vegetarian options?", "Are there vegan dishes?", "Can you make it gluten-free?",
             "What are your seafood options?", "Do you serve meat dishes?", "Are there any dairy-free options?",
