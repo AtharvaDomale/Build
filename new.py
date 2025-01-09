@@ -4,6 +4,8 @@ from keras.models import Sequential
 from keras.layers import Dense, LSTM
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.preprocessing.text import Tokenizer
+
 
 # Sample menu items with prices for the assistant (Real-time data would come from a database or API)
 menu_items = {
